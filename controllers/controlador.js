@@ -2,7 +2,7 @@ var imoveis = require('../ / ');
 var axios = require("axios")
 var qs = require("querystring")
 
-const imoveisControlador = {};
+const imovelControlador = {};
 //CREATE
 imoveisControlador.inserirImoveisControlador = function(req, res){
     imoveis.create({
@@ -115,7 +115,7 @@ imovelControlador.montarReqEdicao = function (req, res) {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             proxy:{
-                host: "...",
+                host: " link gerado pelo AWS",
                 port: 3000
             }
         }
@@ -126,11 +126,12 @@ imovelControlador.montarReqEdicao = function (req, res) {
         res.status(500).send("Erro ao editar o imovel: " + err);
     })
 }
+
 //montarRequisiçãoRemover
 imovelControlador.montarReqDelete = function (req, res) {
     axios.delete('/' + req.params.id,{
         proxy:{
-            host: "...",
+            host: "///",
             port: 3000
         }
         
@@ -141,7 +142,5 @@ imovelControlador.montarReqDelete = function (req, res) {
             res.status(500).send("Erro ao apagar um imovel: " + err);
         })
 }
-
-
 
 module.exports = imovelControlador;
